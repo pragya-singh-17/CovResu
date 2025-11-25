@@ -5,7 +5,9 @@ A powerful Streamlit application that uses local LLM models (via Ollama) to help
 ## Features
 
 ✨ **AI-Powered Resume Tailoring**
-- Automatically rewrite your experience bullet points to match job descriptions
+- Automatically rewrite your professional summary to be more impactful
+- Rewrite experience bullet points to match job descriptions
+- Enhance project descriptions for maximum impact
 - Side-by-side comparison of original vs. AI-tailored content
 - Choose which version to include in your final PDF
 
@@ -19,12 +21,17 @@ A powerful Streamlit application that uses local LLM models (via Ollama) to help
 - Professional cover letter layouts
 - Customizable sections
 
-🎯 **Multi-Step Workflow**
-- Personal Information
-- Skills & Work Experience
-- Projects & Education
-- Target Job Description
-- Document Generation & Download
+🎯 **5-Step Guided Workflow**
+1. Personal Information (Name, Email, Phone, Role, Summary)
+2. Skills & Work Experience (Skills, Job History)
+3. Projects & Certifications (Projects, Certifications)
+4. Education & Job Description (Education, Target JD)
+5. Generate & Download (Compare & Export PDFs)
+
+🧭 **Easy Navigation**
+- Sidebar navigation to jump between steps
+- Back/Next buttons for sequential flow
+- Progress tracking
 
 ## Prerequisites
 
@@ -54,11 +61,11 @@ streamlit run app.py
 2. Open your browser to `http://localhost:8501`
 
 3. Follow the 5-step wizard:
-   - **Step 1**: Enter personal information and professional summary
-   - **Step 2**: Add skills and work experience
-   - **Step 3**: Add projects and education
-   - **Step 4**: Paste the target job description
-   - **Step 5**: Generate and download your documents
+  - **Step 1**: Enter personal information and professional summary
+  - **Step 2**: Add skills and work experience
+  - **Step 3**: Add projects and certifications
+  - **Step 4**: Add education and paste the target job description
+  - **Step 5**: Generate and compare AI-tailored versions, then download PDFs
 
 ## Configuration
 
@@ -78,13 +85,20 @@ OLLAMA_API_URL = "http://localhost:11434/api/generate"
 ## How It Works
 
 ### Resume Tailoring
-The app sends your work experience and the job description to your local LLM, which rewrites your bullet points to highlight relevant skills and keywords from the job posting.
+The app uses three AI functions to enhance your resume:
+
+1. **Professional Summary** - Rewrites your summary to be concise and impactful (max 3 sentences)
+2. **Work Experience** - Rewrites bullet points to match keywords from the job description
+3. **Projects** - Enhances project descriptions to highlight impact and technology
+
+All tailoring happens locally on your machine via Ollama—your data never leaves your computer.
 
 ### Cover Letter Generation
 AI generates a personalized cover letter that:
-- Explains why you're interested in the role
+- Introduces you with enthusiasm and confidence
 - Maps your skills to job requirements
 - Includes a strong call to action
+- Stays under 500 words
 
 ### PDF Generation
 Uses ReportLab to create professionally formatted documents with:
@@ -122,12 +136,27 @@ Uses ReportLab to create professionally formatted documents with:
 - Ensure all text fields are properly filled
 - Check for special characters that might break PDF generation
 
-## Tips
+## Tips for Best Results
 
-- Use detailed job descriptions for better AI tailoring
-- Review AI-generated content before finalizing
-- Keep your experience descriptions concise for better formatting
-- Use specific skills and keywords in your profile
+✅ **Professional Summary**
+- Keep it concise (2-3 sentences)
+- Highlight key achievements and skills
+- Mention years of experience
+
+✅ **Work Experience**
+- Use detailed job descriptions (3-5 sentences)
+- Include specific metrics and achievements
+- Use relevant industry keywords
+
+✅ **Job Description**
+- Paste the complete job posting
+- Include job requirements and responsibilities
+- Use actual JD from job posting (not your own words)
+
+✅ **Cover Letter**
+- AI works best with complete job descriptions
+- Highlight role-specific keywords in your experience
+- Review generated content for accuracy before download
 
 ## Future Enhancements
 
@@ -136,5 +165,7 @@ Uses ReportLab to create professionally formatted documents with:
 - [ ] Resume scoring against job descriptions
 - [ ] Multiple language support
 - [ ] Custom styling options
+- [ ] Batch processing for multiple job applications
+- [ ] Resume version history/comparison
 
 Made with ❤️ using Streamlit & Ollama
